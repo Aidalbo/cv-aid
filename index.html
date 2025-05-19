@@ -15,7 +15,7 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            overflow: hidden; /* Verhindert Scrollbalken */
+            overflow-y: auto; /* Erlaube vertikales Scrollen bei Bedarf */
         }
 
         header {
@@ -86,6 +86,9 @@
             padding: 20px;
             flex: 1; /* Nimmt den verbleibenden Platz ein */
             perspective: 1000px; /* Für 3D-Effekte */
+            display: flex; /* Flexbox für Bild und Text */
+            flex-direction: column; /* Elemente untereinander */
+            align-items: center; /* Zentriert horizontal */
         }
 
         .name-container {
@@ -101,7 +104,7 @@
             height: 200px;
             border-radius: 50%;
             overflow: hidden;
-            margin: 20px auto;
+            margin-bottom: 30px; /* Abstand zum Text darunter */
             box-shadow: 0 0 20px rgba(0, 255, 255, 0.7); /* Stärkerer Schein */
             transition: box-shadow 0.3s ease;
         }
@@ -126,6 +129,8 @@
             transform: translateY(0);
             opacity: 0.9;
             transition: transform 0.3s ease, opacity 0.3s ease, border-left-color 0.3s ease;
+            max-width: 800px; /* Begrenzte Breite für die Abschnitte */
+            width: 100%; /* Nimmt die verfügbare Breite ein */
         }
 
         .section:hover {
@@ -208,6 +213,40 @@
             text-align: center;
         }
 
+        /* Navigation unten */
+        .bottom-nav {
+            background-color: #111;
+            padding: 15px;
+            text-align: center;
+            border-top: 3px solid #0ff;
+            box-shadow: 0 -2px 5px rgba(0, 255, 255, 0.2);
+            position: sticky; /* Fixiert die Navigation am unteren Rand */
+            bottom: 0;
+            width: 100%;
+        }
+
+        .bottom-nav nav ul {
+            display: inline-block;
+        }
+
+        .bottom-nav nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        .bottom-nav nav a {
+            color: #0ff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+            text-shadow: 0 0 0 rgba(0, 255, 255, 0);
+        }
+
+        .bottom-nav nav a:hover {
+            color: #f0f;
+            text-shadow: 0 0 10px rgba(255, 0, 255, 0.7);
+        }
+
         /* Responsives Design */
         @media (max-width: 768px) {
             nav ul {
@@ -237,29 +276,30 @@
                 width: 150px;
                 height: 150px;
             }
+
+            .bottom-nav nav ul {
+                display: block;
+            }
+
+            .bottom-nav nav ul li {
+                display: block;
+                margin: 10px 0;
+            }
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="#schulbildung">Schulbildung</a></li>
-                <li><a href="#arbeitserfahrung">Arbeitserfahrung</a></li>
-                <li><a href="#it-kompetenzen">IT-Kompetenzen</a></li>
-                <li><a href="#zusatzliche-qualifikationen">Zusätzliche Qualifikationen</a></li>
-                <li><a href="#interessen-und-hobbys">Interessen & Hobbys</a></li>
-            </ul>
-        </nav>
+        <h1>IT Zukunft</h1>
     </header>
 
     <div class="container">
-        <div class="name-container">
-            [Dein Name]
-        </div>
         <div class="image-container">
             <img src="[Pfad zu deinem Bild]" alt="[Dein Name] - Foto">
+        </div>
+        <div class="name-container">
+            [Dein Name]
         </div>
         <div class="download-cv">
             <a href="#">📄 Download CV</a>
@@ -302,22 +342,34 @@
         <div id="zusatzliche-qualifikationen" class="section">
             <h2>Zusätzliche Qualifikationen</h2>
             <ul>
-                <li>Ich lerne sehr schnell neue Programme und Technologien</li>
-                <li>Ich arbeite gut mit anderen Menschen zusammen.</li>
-                <li>Ich interessiere mich sehr für den IT-Bereich</li>
-                <li>Ich bin zuverlässig und erledige meine Aufgaben pünktlich</li>
-                <li>Selbstständiges Arbeiten und Verantwortung übernehmen liegt mir</li>
+                <li>🚄 Ich lerne sehr schnell neue Programme und Technologien</li>
+                <li>🤼 Ich arbeite gut mit anderen Menschen zusammen.</li>
+                <li>🗂️ Ich interessiere mich sehr für den IT-Bereich</li>
+                <li>⚖️ Ich bin zuverlässig und erledige meine Aufgaben pünktlich</li>
+                <li>🏛️ Selbstständiges Arbeiten und Verantwortung übernehmen liegt mir</li>
             </ul>
         </div>
 
         <div id="interessen-und-hobbys" class="section">
             <h2>Interessen und Hobbys</h2>
             <ul>
-                <li>Immer was neues lernen</li>
-                <li>PC : Videospiele spielen und am PC arbeiten</li>
+                <li>🚀 Immer was neues lernen</li>
+                <li>⌨️ PC : Videospiele spielen und am PC arbeiten</li>
             </ul>
         </div>
     </div>
+
+    <footer class="bottom-nav">
+        <nav>
+            <ul>
+                <li><a href="#schulbildung">Schulbildung</a></li>
+                <li><a href="#arbeitserfahrung">Arbeitserfahrung</a></li>
+                <li><a href="#it-kompetenzen">IT-Kompetenzen</a></li>
+                <li><a href="#zusatzliche-qualifikationen">Zusätzliche Qualifikationen</a></li>
+                <li><a href="#interessen-und-hobbys">Interessen & Hobbys</a></li>
+            </ul>
+        </nav>
+    </footer>
 
     <p class="footer">[Ort, Datum]</p>
 </body>
